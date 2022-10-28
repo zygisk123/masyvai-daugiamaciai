@@ -136,12 +136,86 @@ for (let i = 0; i < charArray.length; i++) {
 console.log(charArray);
 
 console.log("5 uzdavinys");
+let userID = "user_id";
+let placeInRow = "place_in_row";
+let userArray = [];
+let userArrayLength = 30;
+let usrArrChildLength = 2;
+minID = 1;
+maxID = 1000000;
+minPlace = 1;
+maxPlace = 100;
+
+for (let i = 0; i < userArrayLength; i++) {
+    userArray[i] = [];
+    let randomnID = Math.round(Math.random() * (maxID - minID) + minID);
+    let randomnNum = Math.round(Math.random() * (maxPlace - minPlace) + minPlace);
+    userArray[i] = {
+        userID : randomnID,
+       placeInRow : randomnNum
+    }; 
+}
+console.log(userArray);
 
 console.log("6 uzdavinys");
 
+function compareUserID(a, b) {
+
+    return a.userID - b.userID;
+}
+
+function comparePlaceInRow(a, b) {
+
+    return a.placeInRow - b.placeInRow;
+}
+
+console.log(userArray.sort(compareUserID));
+console.log(userArray.sort(comparePlaceInRow));
+
 console.log("7 uzdavinys");
 
+let min1 = 5;
+let max1 = 15
+
+function createString(length) {
+    var result = '';
+    var characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    var charactersLength = characters.length;
+    for ( var i = 0; i < length; i++ ) {
+        result += characters.charAt(Math.floor(Math.random() * charactersLength));
+    }
+    return result;
+}
+
+for (let i = 0; i < userArray.length; i++) {
+    let length = Math.round(Math.random() * (max1 - min1) + min1);
+    let name = createString(length);
+    userArray[i].name = name;
+
+    length = Math.round(Math.random() * (max1 - min1) + min1);
+    let surname = createString(length);
+    userArray[i].surname = surname;
+}
+
+console.log(userArray);
+
 console.log("8 uzdavinys");
+let array = [];
+let arrayLength = 10;
+
+for (let i = 0; i < arrayLength; i++) {
+    let randomID = Math.round(Math.random() * 5);
+    if (randomID == 0) {
+        array[i] = Math.round(Math.random() * 10);
+    }else{
+        array[i] = [];
+        for (let a = 0; a < randomID; a++) {
+            array[i][a] = Math.round(Math.random() * 10);
+        }
+    }
+}
+
+console.log(array);
 
 console.log("9 uzdavinys");
 
